@@ -1,14 +1,18 @@
 import {useEffect,useState} from 'react'
 import FoodDetail from './FoodDetail'
+import axios from '../src/util/customizeAxios'
 
 const FoodBox =(props)=>{
     const [ValFood,SetValFood] = useState([])
     const [FoodOder,SetFoodOder] = useState([])
     
     useEffect(()=>{
-        fetch('https://625a91bf0ab4013f94a2d9a8.mockapi.io/meals')
-        .then(respon => respon.json())
+        axios('/api/v1/getuser')
+        
         .then( (val) =>{
+            
+            console.log(val);
+            
             SetValFood(val)
         }     
             )
